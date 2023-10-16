@@ -13,7 +13,8 @@ const Main = () => {
     setPassword(event.target.value);
   };
 
-  const requiredData = password.length >= 10 && email.includes('@', '.');
+  const requiredData =
+    password.length >= 10 && email.includes('@') && email.includes('.');
   const navigate = useNavigate();
   const goToBack = () => {
     navigate('/');
