@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+}
+
+.login {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+hr {
+  width: 1px;
+  height: 16px;
+}
+
+.Logopage {
+  width: 200px;
+  padding-left: 20px;
+  .Logo1,
+  .Logo2 {
+    width: 130px;
+  }
+}
+
+.input_text {
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.email,
+.pw {
+  border: 1px solid #eeeeee;
+  width: 600px;
+  height: 50px;
+  border-radius: 8px;
+  text-indent: 1ch;
+  margin-bottom: 10px;
+}
+
+@mixin loginbtn {
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  width: 600px;
+  height: 50px;
+  text-align: center;
+}
+
+.action {
+  @include loginbtn;
+  background-color: blue;
+  cursor: pointer;
+}
+.noaction {
+  @include loginbtn;
+  background-color: pink;
+  cursor: default;
+}
+
+div {
+  font-weight: lighter;
+}
+
+.join2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  .join,
+  .password {
+    width: 150px;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+  }
+}
