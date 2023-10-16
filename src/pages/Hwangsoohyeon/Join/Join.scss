@@ -1,0 +1,183 @@
+* {
+  box-sizing: border-box;
+}
+
+select {
+  color: #999;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+}
+
+label {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+input {
+  display: flex;
+  padding: 19px 0px 15px 16px;
+  align-items: center;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  margin-top: 8px;
+  &::placeholder {
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 400;
+  color: black;
+  width: 147px;
+  height: 22px;
+  padding-bottom: 0%;
+}
+
+.Back {
+  display: flex;
+  width: 100%;
+  height: 56px;
+  // padding: 8px 497px 8px 0px;
+  align-items: center;
+  margin: 24px 0px 0px;
+
+  .Back_arrow {
+    width: 40px;
+    height: 40px;
+  }
+  header {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    width: 35px;
+    height: 28px;
+  }
+}
+
+.Join1 {
+  width: 100%;
+  height: calc(100vh - 74px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .info {
+    width: 100%;
+    padding: 0px 24px 0px 24px;
+
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      width: 84px;
+      height: 17px;
+    }
+
+    .info1 {
+      margin-top: 24px;
+      .info_label {
+        color: red;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    .info2 {
+      margin-top: 24px;
+      input {
+        display: flex;
+        padding: 19px 0px 15px 16px;
+        align-items: center;
+        width: 100%;
+      }
+      .info_label {
+        color: #999;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    .info3 {
+      margin-top: 24px;
+      .phone {
+        display: flex;
+        justify-content: space-between;
+        input {
+          width: 100%;
+          display: flex;
+          padding: 19px 0px 15px 16px;
+          align-items: center;
+          margin-left: 8px;
+        }
+      }
+      .phoneNumber {
+        display: flex;
+        width: 136px;
+        padding: 16px 14px 15px 16px;
+        margin-top: 8px;
+        justify-content: center;
+        align-items: flex-end;
+      }
+      .info_label {
+        color: #999;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    .info4 {
+      margin-top: 24px;
+      .birth {
+        width: 100%;
+        height: 56px;
+        display: flex;
+        align-items: flex-start;
+
+        .birthYear {
+          display: flex;
+          width: 136px;
+          padding: 16px 14px 15px 16px;
+          justify-content: center;
+          align-items: flex-end;
+        }
+
+        .birthMonth {
+          width: 100%;
+          display: flex;
+          padding: 16px 14px 15px 16px;
+          justify-content: center;
+          align-items: flex-end;
+          margin-left: 8px;
+          margin-right: 8px;
+        }
+
+        .birthDay {
+          width: 100%;
+          display: flex;
+          padding: 16px 14px 15px 16px;
+          justify-content: center;
+          align-items: flex-end;
+          margin-right: 8px;
+        }
+      }
+      .info_label {
+        color: #999;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+  .JoinBtn {
+    font-size: 18px;
+    color: white;
+    width: 100%;
+    height: 56px;
+    background-color: #2d71f7;
+    border-radius: 6px;
+    margin-top: 24px;
+    margin-bottom: 40px;
+  }
+}
