@@ -21,8 +21,7 @@ const Login = () => {
     navigate('/main');
   };
 
-  const isValid =
-    users.includes('@', '.') && pwd.length >= 5 && users.includes('.');
+  const isValid = users.includes('@') && pwd.length >= 5 && users.includes('.');
   console.log(users);
   console.log(isValid);
   return (
