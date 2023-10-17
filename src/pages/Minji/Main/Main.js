@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Main.scss';
 import { useNavigate } from 'react-router-dom';
+import { upload } from '@testing-library/user-event/dist/upload';
 
 const Main = () => {
   //email,password정보 저장
@@ -18,11 +19,19 @@ const Main = () => {
     setCheckPwd(event.target.value);
   };
   //file upload 시 files속성에 저장
-  const [file, setFile] = useState('');
+  const [files, setFiles] = useState('');
 
   const savefile = (e) => {
-    setFile(e.target.files);
+    setFiles(e.target.files);
   };
+  const handleFileChange = (event) => {
+    console.log(event);
+    const selectedFile = event.target.files[0];
+    if (!!selectedFile) {
+      setFiles(selectedFile.name);
+    }
+  };
+
   //필수데이터 pwd 10글자이상,email'@'','포함
   const requiredData =
     password.length >= 10 &&
@@ -34,8 +43,11 @@ const Main = () => {
   const goToBack = () => {
     navigate('/');
   };
+  const goToJoin = () => {
+    navigate('/join');
+  };
 
-  console.log(file);
+  console.log(files);
   return (
     <div className="main">
       <button className="back" type="button" onClick={goToBack}>
@@ -67,7 +79,15 @@ const Main = () => {
       </div>
 
       <input className="maininput" type="text" placeholder="닉네임"></input>
-      <input onChange={savefile} className="choosefile" type="file"></input>
+      {/* 두개의 input을 사용하는방법 or 
+label로 파일선택 버튼을 입력한후 input에 파일이름이 나오게 하는방법 */}
+
+      <div className="filebox">
+        <label for="file">파일 선택</label>
+        <input type="file" id="file" onChange={handleFileChange}></input>
+        <div> {files ? files : '파일을 선택해주세요'}</div>
+      </div>
+
       <div className="telnum">
         <span className="phonenum">전화번호</span>
         <span className="choose">선택 사항</span>
@@ -101,7 +121,7 @@ const Main = () => {
           <option>13일</option>
         </select>
       </div>
-      <button className="signup" type="button">
+      <button className="signup" type="button" onClick={goToJoin}>
         회원 가입
       </button>
     </div>
