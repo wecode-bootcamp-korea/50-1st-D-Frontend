@@ -7,6 +7,12 @@
   flex-direction: column;
 }
 
+@mixin inputstyle {
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  background: yellow;
+}
+
 p {
   position: relative;
   right: 250px;
@@ -148,4 +154,16 @@ p {
   height: 50px;
   text-align: center;
   margin-top: 50px;
+}
+
+.choosefile {
+  display: flex;
+  width: 600px;
+  height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 8px;
+  @include inputstyle;
 }

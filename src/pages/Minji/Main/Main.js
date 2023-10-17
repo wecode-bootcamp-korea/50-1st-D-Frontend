@@ -3,9 +3,10 @@ import './Main.scss';
 import { useNavigate } from 'react-router-dom';
 
 const Main = () => {
+  //email,password정보 저장
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const [checkpwd, setCheckPwd] = useState('');
   const saveemail = (event) => {
     setEmail(event.target.value);
   };
@@ -13,12 +14,28 @@ const Main = () => {
     setPassword(event.target.value);
   };
 
+  const checkpassword = (event) => {
+    setCheckPwd(event.target.value);
+  };
+  //file upload 시 files속성에 저장
+  const [file, setFile] = useState('');
+
+  const savefile = (e) => {
+    setFile(e.target.files);
+  };
+  //필수데이터 pwd 10글자이상,email'@'','포함
   const requiredData =
-    password.length >= 10 && email.includes('@') && email.includes('.');
+    password.length >= 10 &&
+    email.includes('@') &&
+    email.includes('.') &&
+    password === checkpwd;
+
   const navigate = useNavigate();
   const goToBack = () => {
     navigate('/');
   };
+
+  console.log(file);
   return (
     <div className="main">
       <button className="back" type="button" onClick={goToBack}>
@@ -30,8 +47,14 @@ const Main = () => {
         <div className="required">필수 사항</div>
       </div>
       <div className="input_main">
-        <input onChange={saveemail} type="text" placeholder="이메일"></input>
         <input
+          value={email}
+          onChange={saveemail}
+          type="text"
+          placeholder="이메일"
+        ></input>
+        <input
+          value={password}
           onChange={savepassword}
           type="text"
           placeholder="비밀번호"
@@ -42,9 +65,9 @@ const Main = () => {
         <span className="profileimg">닉네임과 프로필 이미지</span>
         <span className="choose">선택 사항</span>
       </div>
+
       <input className="maininput" type="text" placeholder="닉네임"></input>
-      <input className="choosefile" type="file"></input>
-      <input type="text"></input>
+      <input onChange={savefile} className="choosefile" type="file"></input>
       <div className="telnum">
         <span className="phonenum">전화번호</span>
         <span className="choose">선택 사항</span>
