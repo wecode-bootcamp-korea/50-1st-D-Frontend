@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Join.scss';
 import { useNavigate } from 'react-router-dom';
 
 const Join = () => {
   const navigate = useNavigate();
+  const [inputid, setinputid] = useState('');
+  const [inputpw, setinputpw] = useState('');
+
+  const goToJoin_ok = () => {
+    navigate('/Join_ok');
+  };
+
   const goToLogin = () => {
     navigate('/Login');
   };
+
+  const saveUserId = (e) => {
+    setinputid(e.target.value);
+    console.log(inputid);
+  };
+
+  const saveUserPw = (e) => {
+    setinputpw(e.target.value);
+    console.log(inputpw);
+  };
+
+  const able = inputid.indexOf('@', '.') !== -1 && inputpw.length >= 10;
+
   return (
     <div>
       <div className="Back">
@@ -30,9 +50,24 @@ const Join = () => {
               <h2>기본정보</h2>
               <label>필수사항</label>
             </div>
-            <input type="text" placeholder="이메일"></input>
-            <input type="password" placeholder="비밀번호"></input>
-            <input type="password" placeholder="비밀번호 확인"></input>
+            <input
+              type="text"
+              placeholder="이메일"
+              onChange={saveUserId}
+              value={inputid}
+            />
+            <input
+              type="password"
+              placeholder="비밀번호"
+              onChange={saveUserPw}
+              value={inputpw}
+            />
+            <input
+              type="password"
+              placeholder="비밀번호 확인"
+              onChange={saveUserPw}
+              value={inputpw}
+            />
           </div>
 
           <div className="info2">
@@ -40,7 +75,8 @@ const Join = () => {
               <h2>닉네임과 프로필이미지</h2>
               <label>선택 사항</label>
             </div>
-            <input type="text" placeholder="닉네임"></input>
+            <input type="text" placeholder="닉네임" />
+            <input type="file" />
           </div>
 
           <div className="info3">
@@ -50,17 +86,13 @@ const Join = () => {
             </div>
             <div className="phone">
               <select name="phone_number" className="phoneNumber">
-                <option value="">010</option>
                 <option value="010" selected="selected">
                   010
                 </option>
                 <option value="011">011</option>
                 <option value="070">070</option>
               </select>
-              <input
-                type="tel"
-                placeholder="휴대폰번호를 입력해주세요."
-              ></input>
+              <input type="tel" placeholder="휴대폰번호를 입력해주세요." />
             </div>
           </div>
 
@@ -97,7 +129,7 @@ const Join = () => {
             </div>
           </div>
 
-          <button className="JoinBtn" onClick={goToLogin}>
+          <button disabled={!able} className="JoinBtn" onClick={goToJoin_ok}>
             회원가입
           </button>
         </div>
