@@ -1,5 +1,5 @@
 import React from 'react';
-import './Join_ok.scss';
+import './JoinOk.scss';
 import { useNavigate } from 'react-router-dom';
 
 const Join = () => {
@@ -18,7 +18,7 @@ const Join = () => {
       <div className="Back">
         <div className="Backicon">
           <img
-            className="Back_arrow"
+            className="BackArrow"
             src="./images/Back_arrow.png"
             alt="Back_arrow"
             onClick={goToJoin}

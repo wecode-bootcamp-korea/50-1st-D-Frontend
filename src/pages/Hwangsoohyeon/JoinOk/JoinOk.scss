@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 .Back {
   display: flex;
   width: 100%;
@@ -10,7 +6,7 @@
   align-items: center;
   margin: 24px 0px 0px;
 
-  .Back_arrow {
+  .BackArrow {
     width: 40px;
     height: 40px;
   }
@@ -46,7 +42,6 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    justify-content: center;
     h1 {
       width: 100%;
       height: 17px;

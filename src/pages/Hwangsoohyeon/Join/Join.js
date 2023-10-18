@@ -1,38 +1,41 @@
 import React, { useState } from 'react';
-import './Join.scss';
 import { useNavigate } from 'react-router-dom';
+import './Join.scss';
 
 const Join = () => {
   const navigate = useNavigate();
-  const [inputid, setinputid] = useState('');
-  const [inputpw, setinputpw] = useState('');
-
-  const goToJoin_ok = () => {
-    navigate('/Join_ok');
-  };
+  const [inputId, setInputId] = useState('');
+  const [inputPw, setInputPw] = useState('');
+  const [reInputPw, setReInputPW] = useState('');
 
   const goToLogin = () => {
     navigate('/Login');
   };
 
-  const saveUserId = (e) => {
-    setinputid(e.target.value);
-    console.log(inputid);
+  const goToJoinOk = () => {
+    // navigate('/Login');
+    fetch('http://localhost:8000/insertUserInfo', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        email: inputId,
+        password: inputPw,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => navigate('/Login'));
   };
 
-  const saveUserPw = (e) => {
-    setinputpw(e.target.value);
-    console.log(inputpw);
-  };
-
-  const able = inputid.indexOf('@', '.') !== -1 && inputpw.length >= 10;
+  const able = inputId.indexOf('@') !== -1 && inputPw.length >= 10;
 
   return (
     <div>
       <div className="Back">
         <div className="Backicon">
           <img
-            className="Back_arrow"
+            className="BackArrow"
             src="./images/Back_arrow.png"
             alt="Back_arrow"
             onClick={goToLogin}
@@ -42,7 +45,6 @@ const Join = () => {
       </div>
       <div className="Join1">
         <div className="info">
-          {/* <div>회원가입페이지</div> */}
           <h1>회원가입</h1>
 
           <div className="info1">
@@ -53,20 +55,20 @@ const Join = () => {
             <input
               type="text"
               placeholder="이메일"
-              onChange={saveUserId}
-              value={inputid}
+              onChange={(e) => setInputId(e.target.value)}
+              value={inputId}
             />
             <input
               type="password"
               placeholder="비밀번호"
-              onChange={saveUserPw}
-              value={inputpw}
+              onChange={(e) => setInputPw(e.target.value)}
+              value={inputPw}
             />
             <input
               type="password"
               placeholder="비밀번호 확인"
-              onChange={saveUserPw}
-              value={inputpw}
+              onChange={(e) => setReInputPW(e.target.value)}
+              value={reInputPw}
             />
           </div>
 
@@ -129,7 +131,7 @@ const Join = () => {
             </div>
           </div>
 
-          <button disabled={!able} className="JoinBtn" onClick={goToJoin_ok}>
+          <button disabled={!able} className="JoinBtn" onClick={goToJoinOk}>
             회원가입
           </button>
         </div>
