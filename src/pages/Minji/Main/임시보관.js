@@ -35,7 +35,7 @@ const Main = () => {
       setFiles(selectedFile.name);
     }
   };
-  const signiupp = () =>
+  const signiup = () =>
     fetch('http://10.58.52.85:8000/signUp', {
       method: 'POST',
       headers: {
@@ -52,7 +52,7 @@ const Main = () => {
           alert('비밀번호는 10글자 이상으로 설정해주세요!');
         } else if (data.message === 'userCREATED') {
           alert('회원가입 성공');
-          navigate('/');
+          navigate('/minji.donejoin');
         }
         console.log(data);
       });
@@ -145,7 +145,7 @@ const Main = () => {
           <option>13일</option>
         </select>
       </div>
-      <button className="signup" type="button" onClick={signiupp}>
+      <button className="signup" type="button" onClick={signiup}>
         회원 가입
       </button>
     </div>
