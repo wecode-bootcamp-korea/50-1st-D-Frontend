@@ -62,6 +62,7 @@ hr {
 .noaction {
   @include loginbtn;
   cursor: default;
+  color: black;
   background: #fafafa;
   border: 1px solid var(#e0e0e0);
 }

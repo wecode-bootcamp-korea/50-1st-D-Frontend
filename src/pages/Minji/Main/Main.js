@@ -8,6 +8,10 @@ const Main = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [checkpwd, setCheckPwd] = useState('');
+  const [nickname, setNickName] = useState('');
+  const savenickname = (event) => {
+    setNickName(event.target.value);
+  };
   const saveemail = (event) => {
     setEmail(event.target.value);
   };
@@ -31,8 +35,29 @@ const Main = () => {
       setFiles(selectedFile.name);
     }
   };
+  const signiupp = () =>
+    fetch('http://10.58.52.85:8000/signUp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (password.length < 10) {
+          alert('비밀번호는 10글자 이상으로 설정해주세요!');
+        } else if (data.message === 'userCREATED') {
+          alert('회원가입 성공');
+          navigate('/');
+        }
+        console.log(data);
+      });
 
-  //필수데이터 pwd 10글자이상,email'@'','포함
+  //필수데이터 pwd 10글자이상,email'@'','포함 & pwd확인도 일치한지 확인
   const requiredData =
     password.length >= 10 &&
     email.includes('@') &&
@@ -43,11 +68,7 @@ const Main = () => {
   const goToBack = () => {
     navigate('/');
   };
-  const goToJoin = () => {
-    navigate('/join');
-  };
 
-  console.log(files);
   return (
     <div className="main">
       <button className="back" type="button" onClick={goToBack}>
@@ -78,14 +99,17 @@ const Main = () => {
         <span className="choose">선택 사항</span>
       </div>
 
-      <input className="maininput" type="text" placeholder="닉네임"></input>
-      {/* 두개의 input을 사용하는방법 or 
-label로 파일선택 버튼을 입력한후 input에 파일이름이 나오게 하는방법 */}
+      <input
+        onChange={savenickname}
+        className="maininput"
+        type="text"
+        placeholder="닉네임"
+      ></input>
 
       <div className="filebox">
-        <label for="file">파일 선택</label>
+        <label htmlFor="file">파일 선택</label>
         <input type="file" id="file" onChange={handleFileChange}></input>
-        <div> {files ? files : '파일을 선택해주세요'}</div>
+        <div className="filename"> {files ? files : '파일을 선택해주세요'}</div>
       </div>
 
       <div className="telnum">
@@ -121,7 +145,7 @@ label로 파일선택 버튼을 입력한후 input에 파일이름이 나오게 
           <option>13일</option>
         </select>
       </div>
-      <button className="signup" type="button" onClick={goToJoin}>
+      <button className="signup" type="button" onClick={signiupp}>
         회원 가입
       </button>
     </div>

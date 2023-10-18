@@ -18,12 +18,38 @@ const Login = () => {
 
   const navigate = useNavigate();
   const goToMain = () => {
-    navigate('/main');
+    navigate('/minji.main');
+  };
+  const goToJoin = () => {
+    navigate('/minji.join');
   };
 
   const isValid = users.includes('@') && pwd.length >= 5 && users.includes('.');
   console.log(users);
   console.log(isValid);
+  //body 안에 key값의 useState value값이 객체일때만 스테이트.객체내의 키값
+  const signinn = () =>
+    fetch('http://10.58.52.59:8000/users/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        email: users,
+        password: pwd,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.message === '로그인 성공!') {
+          localStorage.setItem('TOKEN', data.token);
+          navigate('/minji.join');
+        } else if (data.message === 'INVALID EMAIL OR PASSWORD') {
+          alert('가입되지 않은 정보입니다.');
+          navigate('/minji.main');
+        }
+        console.log(data);
+      });
   return (
     <div className="login">
       <div className="Logopage">
@@ -49,7 +75,7 @@ const Login = () => {
         type="button"
         className={isValid ? 'action' : 'noaction'}
         disabled={!isValid}
-        onClick={goToMain}
+        onClick={signinn}
       >
         로그인
       </button>

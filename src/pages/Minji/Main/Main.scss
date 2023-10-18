@@ -176,9 +176,9 @@ p {
     font-style: normal;
     font-weight: 400;
   }
-  div {
+  .filename {
     color: #999;
-    width: 490px;
+    flex: 1;
     border: 1px solid #e6e6e6;
     border-radius: 4px;
     padding: 8px;

@@ -4,10 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import JoinLogo from '../../image/join로고.png';
 
 const Join = () => {
+  const navigate = useNavigate();
+  const goToMain = () => {
+    navigate('/minji.main');
+  };
   return (
     <div className="joindone">
       <div className="back">
-        <span>뒤로</span>
+        <span onClick={goToMain}>뒤로</span>
       </div>
       <div className="join3">
         <img className="joinlogo" src={JoinLogo} alt="mmmm"></img>
