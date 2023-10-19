@@ -6,11 +6,11 @@ const Join = () => {
   const navigate = useNavigate();
 
   const goToJoin = () => {
-    navigate('/Join');
+    navigate('/Hwangsoohyeon.Join');
   };
 
   const goToLogin = () => {
-    navigate('/Login');
+    navigate('/Hwangsoohyeon.Login');
   };
 
   return (

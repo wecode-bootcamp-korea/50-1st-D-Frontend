@@ -1,0 +1,82 @@
+.postAdd {
+  display: flex;
+  padding: 0px 24px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  .publish {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-bottom: 0px;
+    align-self: stretch;
+    .profile {
+      display: flex;
+      width: 48px;
+      height: 48px;
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      margin-left: 24px;
+      margin-bottom: 32px;
+      .userName {
+        font-size: 20px;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 8px;
+      }
+      .text {
+        display: flex;
+        padding: 15px 307px 617px 16px;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 6px;
+        border: 1px solid #e0e0e0;
+        background: #fff;
+        &::placeholder {
+          color: #999;
+          font-size: 16px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  .btn {
+    width: 100%;
+    display: flex;
+    padding-top: 24px;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-start;
+    border-top: 1px solid #e6e6e6;
+    .deleteBtn {
+      width: 120px;
+      height: 56px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 6px;
+      border: 1px solid #2d71f7;
+      background: #fff;
+      color: #2d71f7;
+      font-size: 18px;
+      font-weight: 800;
+    }
+    .okBtn {
+      width: 120px;
+      height: 56px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 6px;
+      border: 1px solid #2d71f7;
+      background: #2d71f7;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+    }
+  }
+}

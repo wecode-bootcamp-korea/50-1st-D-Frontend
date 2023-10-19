@@ -1,0 +1,115 @@
+.post {
+  width: 100%;
+  height: 100%;
+  padding: 0px 24px;
+  display: flex;
+  flex-direction: column;
+  .Back {
+    display: flex;
+    width: 100%;
+    height: 56px;
+    align-items: center;
+    margin: 24px 0px 0px;
+    .BackArrow {
+      width: 40px;
+      height: 40px;
+    }
+    header {
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      width: 35px;
+      height: 28px;
+    }
+  }
+  .postDetail {
+    width: 100%;
+    padding: 0px 8px 24px 8px;
+    flex-direction: column;
+    border-bottom: 1px solid #e6e6e6;
+    .userInfo {
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .userInfo1 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .profile {
+        width: 48px;
+        height: 48px;
+      }
+      .userName {
+        font-size: 20px;
+        font-weight: 700;
+        color: #000;
+      }
+      .writeDate {
+        font-size: 16px;
+        color: #999;
+        font-weight: 400;
+      }
+    }
+    .postBody {
+      padding: 0px 8px 24px 8px;
+    }
+    .review {
+      font-size: 16px;
+      color: #999;
+      font-weight: 400;
+    }
+  }
+  .userReviewList {
+    display: flex;
+    flex-direction: column;
+    .userReview {
+      width: 100%;
+      display: flex;
+      justify-content: stretch;
+      align-items: flex-start;
+      margin-top: 24px;
+      .userImg {
+        width: 32px;
+        height: 48px;
+        .profile {
+          width: 32px;
+          height: 32px;
+        }
+      }
+      .userReviewInfo {
+        display: flex;
+        width: 100%;
+        height: 44px;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 24px;
+        .userReviewInfo1 {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .userName {
+            width: 100%;
+            height: 22px;
+            font-size: 16px;
+            color: #000;
+            font-weight: 700;
+          }
+          .writeDate {
+            height: 22px;
+            font-size: 16px;
+            color: #999;
+            font-weight: 400;
+          }
+        }
+        .coment {
+          margin-bottom: 24px;
+          font-size: 16px;
+          color: #000;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

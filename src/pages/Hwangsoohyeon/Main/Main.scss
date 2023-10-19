@@ -1,0 +1,72 @@
+.Main {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 24px;
+  margin: 40px 0px;
+  .postList {
+    height: 80vh;
+    overflow-y: scroll;
+    padding: 0px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .post {
+      width: 100%;
+      height: auto;
+      padding: 0px 8px 24px 8px;
+      flex-direction: column;
+      border-bottom: 1px solid #e6e6e6;
+      .userInfo {
+        margin-bottom: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .writeDate {
+          font-size: 16px;
+          font-weight: 400;
+          color: #999;
+        }
+        .userInfo1 {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+        .profile {
+          width: 48px;
+          height: 48px;
+        }
+        .userName {
+          font-size: 20px;
+          font-weight: 700;
+          color: #000;
+        }
+      }
+      .postBody {
+        padding: 0px 8px 24px 8px;
+      }
+      .review {
+        font-size: 16px;
+        color: #999;
+        font-weight: 400;
+      }
+    }
+  }
+  .postUpload {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    align-items: flex-end;
+    .postBtn {
+      background-color: #2d71f7;
+      border: 1px solid #2d71f7;
+      border-radius: 6px;
+      width: 120px;
+      height: var(--input_Height, 56px);
+      display: flex;
+      justify-content: center;
+      font-size: 18px;
+      color: #fff;
+      font-weight: 800;
+    }
+  }
+}

@@ -172,5 +172,11 @@
     border-radius: 6px;
     margin-top: 24px;
     margin-bottom: 40px;
+    &:hover {
+      background-color: #083e7f;
+    }
+    &:disabled {
+      background-color: #ccc;
+    }
   }
 }

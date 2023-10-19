@@ -7,14 +7,15 @@ const Join = () => {
   const [inputId, setInputId] = useState('');
   const [inputPw, setInputPw] = useState('');
   const [reInputPw, setReInputPW] = useState('');
+  const [inputNickName, setInputNickName] = useState('');
 
   const goToLogin = () => {
-    navigate('/Login');
+    navigate('/Hwangsoohyeon.Login');
   };
 
   const goToJoinOk = () => {
     // navigate('/Login');
-    fetch('http://localhost:8000/insertUserInfo', {
+    fetch('http://10.58.52.70:8000/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -22,13 +23,14 @@ const Join = () => {
       body: JSON.stringify({
         email: inputId,
         password: inputPw,
+        nickname: inputNickName,
       }),
     })
       .then((res) => res.json())
-      .then((data) => navigate('/Login'));
+      .then((data) => navigate('/Hwangsoohyeon.JoinOk'));
   };
 
-  const able = inputId.indexOf('@') !== -1 && inputPw.length >= 10;
+  const able = inputId.indexOf('@' && '.') !== -1 && inputPw.length >= 10;
 
   return (
     <div>
@@ -77,7 +79,12 @@ const Join = () => {
               <h2>닉네임과 프로필이미지</h2>
               <label>선택 사항</label>
             </div>
-            <input type="text" placeholder="닉네임" />
+            <input
+              type="text"
+              placeholder="닉네임"
+              onChange={(e) => setInputNickName(e.target.value)}
+              value={inputNickName}
+            />
             <input type="file" />
           </div>
 

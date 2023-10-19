@@ -8,11 +8,11 @@ const Login = () => {
   const [inputPw, setInputPw] = useState('');
 
   const goToJoin = () => {
-    navigate('/Join');
+    navigate('/Hwangsoohyeon.join');
   };
 
   const goToMain = () => {
-    fetch('http://localhost:8000/login', {
+    fetch('http://10.58.52.70:8000/users/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -23,13 +23,14 @@ const Login = () => {
       }),
     })
       .then((res) => res.json())
-      .then((data) => {
-        if (data.message === '로그인 완료!') {
-          localStorage.setItem('jwtToken', data.jwtToken);
+      .then((res) => {
+        if (res.message === 'LOG_IN_SUCCESS') {
+          localStorage.setItem('token', res.token);
           alert('로그인 성공');
-          navigate('/JoinOk');
+          navigate('/Hwangsoohyeon.Main');
         } else {
           alert('로그인 실패');
+          navigate('/Hwangsoohyeon.join');
         }
       });
   };
@@ -42,7 +43,7 @@ const Login = () => {
     setInputPw(e.target.value);
   };
 
-  const able = inputId.indexOf('@') !== -1 && inputPw.length >= 5;
+  const able = inputId.indexOf('@' && '.') !== -1 && inputPw.length >= 10;
 
   return (
     <div className="login">
@@ -69,6 +70,7 @@ const Login = () => {
             onChange={saveUserPw}
             value={inputPw}
           />
+
           <button disabled={!able} onClick={goToMain}>
             로그인
           </button>
