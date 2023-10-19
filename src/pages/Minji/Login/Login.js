@@ -18,18 +18,17 @@ const Login = () => {
 
   const navigate = useNavigate();
   const goToMain = () => {
-    navigate('/minji.main');
+    navigate('/minji-main');
   };
   const goToJoin = () => {
-    navigate('/minji.join');
+    navigate('/minji-join');
   };
 
   const isValid = users.includes('@') && pwd.length >= 5 && users.includes('.');
-  console.log(users);
-  console.log(isValid);
+
   //body 안에 key값의 useState value값이 객체일때만 스테이트.객체내의 키값
   const signinn = () =>
-    fetch('http://10.58.52.59:8000/users/login', {
+    fetch('http://10.58.52.215:8000/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -39,16 +38,16 @@ const Login = () => {
         password: pwd,
       }),
     })
+      //객체안에 'token'키값, 벨류 리스폰스안에 있는 객체의 벨류를 알아야함.
       .then((res) => res.json())
       .then((data) => {
-        if (data.message === '로그인 성공!') {
+        if (data.message === 'LOGIN SUCCESS') {
           localStorage.setItem('TOKEN', data.token);
-          navigate('/minji.join');
-        } else if (data.message === 'INVALID EMAIL OR PASSWORD') {
-          alert('가입되지 않은 정보입니다.');
-          navigate('/minji.main');
+          navigate('/minji-thread');
+        } else if (data.message === '존재하지 않는 이메일입니다.') {
+          alert('존재하지 않는 이메일입니다');
+          navigate('/minji-main');
         }
-        console.log(data);
       });
   return (
     <div className="login">
@@ -56,38 +55,38 @@ const Login = () => {
         <img className="Logo1" src={Logo1} alt="Logo1"></img>
         <img className="Logo2" src={Logo2} alt="Logo2"></img>
       </div>
-      <div className="input_text">
+      <div className="container">
         <input
           onChange={saveUserid}
           className="email"
           type="text"
           placeholder="이메일"
-        ></input>
+        />
         <input
           onChange={saveUserpwd}
           className="pw"
           type="password"
           placeholder="비밀번호"
-        ></input>
-      </div>
+        />
 
-      <button
-        type="button"
-        className={isValid ? 'action' : 'noaction'}
-        disabled={!isValid}
-        onClick={signinn}
-      >
-        로그인
-      </button>
+        <button
+          type="button"
+          className={isValid ? 'action' : 'noaction'}
+          disabled={!isValid}
+          onClick={signinn}
+        >
+          로그인
+        </button>
 
-      <div className="join2">
-        <button className="join" type="button" onClick={goToMain}>
-          회원 가입
-        </button>
-        <hr></hr>
-        <button className="password" type="button">
-          비밀번호 찾기
-        </button>
+        <div className="loginoption">
+          <button className="join" type="button" onClick={goToMain}>
+            회원 가입
+          </button>
+          <hr></hr>
+          <button className="password" type="button">
+            비밀번호 찾기
+          </button>
+        </div>
       </div>
     </div>
   );

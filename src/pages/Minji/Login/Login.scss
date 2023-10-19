@@ -6,82 +6,109 @@
 
 .login {
   width: 100%;
-  height: 100vh;
+  height: 844px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: column;
   flex-direction: column;
-}
-
-hr {
-  width: 1px;
-  height: 16px;
-}
-
-.Logopage {
-  width: 200px;
-  padding-left: 20px;
-  .Logo1,
-  .Logo2 {
-    width: 130px;
+  border-radius: 16px;
+  border: 1px solid#e5e5e5;
+  hr {
+    width: 1px;
+    height: 16px;
   }
-}
 
-.input_text {
-  margin-top: 120px;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-}
+  .Logopage {
+    height: 555px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    align-self: stretch;
+    .Logo1,
+    .Logo2 {
+      width: 130px;
+    }
+  }
+  .container {
+    display: flex;
+    width: 100%;
+    padding: 0px 24px;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    align-items: stretch;
 
-.email,
-.pw {
-  border: 1px solid #e0e0e0;
-  width: 600px;
-  height: 50px;
-  border-radius: 6px;
-  text-indent: 1ch;
-  margin-bottom: 10px;
-}
+    .email {
+      display: flex;
+      height: 56px;
+      padding: 19px 470px 15px 16px;
+      align-items: center;
+      align-self: stretch;
+      border-radius: 6px;
+      border: 1px solid#e0e0e0;
+      width: 100%;
+    }
+    .pw {
+      display: flex;
+      height: 56px;
+      padding: 19px 456px 15px 16px;
+      align-items: center;
+      align-self: stretch;
+      border-radius: 6px;
+      border: 1px solid#e0e0e0;
+      width: 100%;
+    }
+    .loginoption {
+      display: flex;
+      width: 240px;
+      height: 17px;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      margin: 20px auto;
+      .join,
+      .password {
+        display: flex;
+        width: 240px;
+        height: 17px;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        background-color: white;
+        width: 100px;
+        text-align: center;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        cursor: pointer;
+        border: none;
+      }
+    }
+  }
 
-@mixin loginbtn {
-  color: white;
-  font-weight: bold;
-  border-radius: 6px;
-  width: 600px;
-  height: 56px;
-  text-align: center;
-}
+  @mixin loginbtn {
+    color: white;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 800;
+    border-radius: 6px;
+    width: 100%;
+    height: 56px;
+    text-align: center;
+  }
 
-.action {
-  @include loginbtn;
-  background-color: blue;
-  cursor: pointer;
-  border: none;
-}
-.noaction {
-  @include loginbtn;
-  cursor: default;
-  color: black;
-  background: #fafafa;
-  border: 1px solid var(#e0e0e0);
-}
-
-div {
-  font-weight: lighter;
-}
-
-.join2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  .join,
-  .password {
-    width: 150px;
-    background-color: white;
-    font-size: 14px;
+  .action {
+    @include loginbtn;
+    background-color: blue;
     cursor: pointer;
     border: none;
+  }
+  .noaction {
+    @include loginbtn;
+    cursor: default;
+    color: black;
+    background: #fafafa;
+    border: 1px solid #e0e0e0;
   }
 }

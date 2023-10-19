@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Join.scss';
 import { useNavigate } from 'react-router-dom';
-import { upload } from '@testing-library/user-event/dist/upload';
+import BackArrow from '../../image/Back_arrow.png';
 
 const Join = () => {
   //email,password정보 저장
@@ -29,32 +29,31 @@ const Join = () => {
     setFiles(e.target.files);
   };
   const handleFileChange = (event) => {
-    console.log(event);
     const selectedFile = event.target.files[0];
     if (!!selectedFile) {
       setFiles(selectedFile.name);
     }
   };
-  const signiup = () =>
-    fetch('http://10.58.52.85:8000/signUp', {
+  const signupp = () =>
+    fetch('http://10.58.52.215:8000/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify({
-        email: email,
-        password: password,
+        email,
+        password,
+        //객체의 key와 value같으면 email,이렇게해도됨
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (password.length < 10) {
-          alert('비밀번호는 10글자 이상으로 설정해주세요!');
-        } else if (data.message === 'userCREATED') {
+        /*if (password.length < 10) {
+          alert('비밀번호는 10자리 이상이어야합니다.');
+        }*/ if (data.message === 'SIGNUP SUCCESS') {
           alert('회원가입 성공');
-          navigate('/minji.donejoin');
-        }
-        console.log(data);
+          navigate('/minji-donejoin');
+        } else alert('회원가입 실패');
       });
 
   //필수데이터 pwd 10글자이상,email'@'','포함 & pwd확인도 일치한지 확인
@@ -71,11 +70,12 @@ const Join = () => {
 
   return (
     <div className="main">
-      <button className="back" type="button" onClick={goToBack}>
-        &lt; &nbsp;&nbsp;뒤로
-      </button>
+      <div className="header">
+        <img onClick={goToBack} src={BackArrow} alt="backarrow" />
+        <span onClick={goToBack}>뒤로</span>
+      </div>
       <p>회원가입</p>
-      <div className="basic">
+      <div className="basic mixinfo">
         <div className="information">기본 정보</div>
         <div className="required">필수 사항</div>
       </div>
@@ -85,16 +85,16 @@ const Join = () => {
           onChange={saveemail}
           type="text"
           placeholder="이메일"
-        ></input>
+        />
         <input
           value={password}
           onChange={savepassword}
           type="text"
           placeholder="비밀번호"
         ></input>
-        <input type="text" placeholder="비밀번호 확인"></input>
+        <input type="text" placeholder="비밀번호 확인" />
       </div>
-      <div className="profileimage">
+      <div className="profileimage mixinfo">
         <span className="profileimg">닉네임과 프로필 이미지</span>
         <span className="choose">선택 사항</span>
       </div>
@@ -104,15 +104,15 @@ const Join = () => {
         className="maininput"
         type="text"
         placeholder="닉네임"
-      ></input>
+      />
 
       <div className="filebox">
         <label htmlFor="file">파일 선택</label>
-        <input type="file" id="file" onChange={handleFileChange}></input>
+        <input type="file" id="file" onChange={handleFileChange} />
         <div className="filename"> {files ? files : '파일을 선택해주세요'}</div>
       </div>
 
-      <div className="telnum">
+      <div className="telnum mixinfo">
         <span className="phonenum">전화번호</span>
         <span className="choose">선택 사항</span>
       </div>
@@ -127,7 +127,7 @@ const Join = () => {
           placeholder="휴대폰 번호를 입력해주세요"
         ></input>
       </div>
-      <div className="hbd">
+      <div className="hbd mixinfo">
         <span className="birth">생일</span>
         <span className="choose">선택 사항</span>
       </div>
@@ -145,7 +145,7 @@ const Join = () => {
           <option>13일</option>
         </select>
       </div>
-      <button className="signup" type="button" onClick={signiup}>
+      <button className="signup" type="button" onClick={signupp}>
         회원 가입
       </button>
     </div>
