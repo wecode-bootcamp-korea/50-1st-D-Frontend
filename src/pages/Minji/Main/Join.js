@@ -35,7 +35,7 @@ const Join = () => {
     }
   };
   const signupp = () =>
-    fetch('http://10.58.52.215:8000/users/signup', {
+    fetch('http://10.58.52.245:8000/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -74,76 +74,81 @@ const Join = () => {
         <img onClick={goToBack} src={BackArrow} alt="backarrow" />
         <span onClick={goToBack}>뒤로</span>
       </div>
-      <p>회원가입</p>
-      <div className="basic mixinfo">
-        <div className="information">기본 정보</div>
-        <div className="required">필수 사항</div>
-      </div>
-      <div className="input_main">
-        <input
-          value={email}
-          onChange={saveemail}
-          type="text"
-          placeholder="이메일"
-        />
-        <input
-          value={password}
-          onChange={savepassword}
-          type="text"
-          placeholder="비밀번호"
-        ></input>
-        <input type="text" placeholder="비밀번호 확인" />
-      </div>
-      <div className="profileimage mixinfo">
-        <span className="profileimg">닉네임과 프로필 이미지</span>
-        <span className="choose">선택 사항</span>
-      </div>
+      <div className="container">
+        <p>회원가입</p>
+        <div className="basic mixinfo">
+          <div className="blackColorFont">기본 정보</div>
+          <div className="required">필수 사항</div>
+        </div>
+        <div className="input_main">
+          <input
+            value={email}
+            onChange={saveemail}
+            type="text"
+            placeholder="이메일"
+          />
+          <input
+            value={password}
+            onChange={savepassword}
+            type="password"
+            placeholder="비밀번호"
+          />
+          <input type="text" placeholder="비밀번호 확인" />
+        </div>
+        <div className="mixinfo">
+          <span className="blackColorFont">닉네임</span>
+          <span className="choose">선택 사항</span>
+        </div>
+        <div className="input_main">
+          <input
+            onChange={savenickname}
+            className="maininput"
+            type="text"
+            placeholder="닉네임"
+          />
+        </div>
+        <div className="filebox">
+          <label htmlFor="file">파일 선택</label>
+          <input type="file" id="file" onChange={handleFileChange} />
+          <div className="filename">
+            {' '}
+            {files ? files : '파일을 선택해주세요'}
+          </div>
+        </div>
 
-      <input
-        onChange={savenickname}
-        className="maininput"
-        type="text"
-        placeholder="닉네임"
-      />
+        <div className="mixinfo">
+          <span className="blackColorFont">전화번호</span>
+          <span className="choose">선택 사항</span>
+        </div>
 
-      <div className="filebox">
-        <label htmlFor="file">파일 선택</label>
-        <input type="file" id="file" onChange={handleFileChange} />
-        <div className="filename"> {files ? files : '파일을 선택해주세요'}</div>
-      </div>
-
-      <div className="telnum mixinfo">
-        <span className="phonenum">전화번호</span>
-        <span className="choose">선택 사항</span>
-      </div>
-
-      <div className="typephone">
-        <select className="startnum">
-          <option>010</option>
-        </select>
-        <input
-          className="pushnum"
-          type="tel"
-          placeholder="휴대폰 번호를 입력해주세요"
-        ></input>
-      </div>
-      <div className="hbd mixinfo">
-        <span className="birth">생일</span>
-        <span className="choose">선택 사항</span>
-      </div>
-      <div className="birthyear">
-        <select className="year">
-          <option>1997년</option>
-          <option>1998년</option>
-        </select>
-        <select className="month">
-          <option>1월</option>
-          <option>2월</option>
-        </select>
-        <select className="day">
-          <option>1일</option>
-          <option>13일</option>
-        </select>
+        <div className="typephone">
+          <select className="startnum">
+            <option>010</option>
+          </select>
+          <input
+            className="pushnum"
+            type="tel"
+            placeholder="휴대폰 번호를 입력해주세요"
+          />
+        </div>
+        <div className="mixinfo">
+          <span className="blackColorFont">생일</span>
+          <span className="choose">선택 사항</span>
+        </div>
+        <div className="birthyear">
+          <select className="year">
+            <option>1997년</option>
+            <option>1998년</option>
+          </select>
+          <select className="month">
+            <option>1월</option>
+            <option>2월</option>
+          </select>
+          <select className="day">
+            <option>1일</option>
+            <option>13일</option>
+          </select>
+        </div>
       </div>
       <button className="signup" type="button" onClick={signupp}>
         회원 가입

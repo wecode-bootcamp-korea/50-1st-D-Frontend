@@ -13,15 +13,15 @@ const PostAdd = () => {
   const savepost = (e) => {
     setAddPost(e.target.value);
   };
-  //이거 제대로해민지야 localStorage.setItem('TOKEN', data.token);
+
   const token = localStorage.getItem('TOKEN');
   const created = () =>
-    fetch('http://10.58.52.215:8000/writePost', {
+    fetch('http://10.58.52.238:8000/thread', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
         //토큰가지고온거넣고
-        authorization: localStorage.getItem('TOKEN'),
+        token: token,
         //컨트롤아이버튼:도구찾기
       },
       body: JSON.stringify({
@@ -30,13 +30,13 @@ const PostAdd = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        localStorage.getItem('TOKEN');
+        // localStorage.getItem('TOKEN');
         if (data.message === 'NEW_THREAD_CREATED') {
           navigate('/minji-thread');
-        } else if (data.message === 'CONTENT_TOO_SHORT') {
-          alert('한 글자 이상이어야 합니다.');
+          // } else if (data.message === 'CONTENT_TOO_SHORT') {
+          //   alert('한 글자 이상이어야 합니다.');
         } else alert('로그인 하지 않은 사용자는 쓰레드를 남길 수 없습니다.');
-        navigate('/');
+        // navigate('/');
       });
   //로그인하지 않을때 로그인 페이지로 갈 수 있게 기능 구현(21일날 실험해보기)
   return (

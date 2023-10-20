@@ -28,7 +28,7 @@ const Login = () => {
 
   //body 안에 key값의 useState value값이 객체일때만 스테이트.객체내의 키값
   const signinn = () =>
-    fetch('http://10.58.52.215:8000/login', {
+    fetch('http://10.58.52.238:8000/users/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -41,7 +41,7 @@ const Login = () => {
       //객체안에 'token'키값, 벨류 리스폰스안에 있는 객체의 벨류를 알아야함.
       .then((res) => res.json())
       .then((data) => {
-        if (data.message === 'LOGIN SUCCESS') {
+        if (data.message === 'LOG_IN_SUCCESS') {
           localStorage.setItem('TOKEN', data.token);
           navigate('/minji-thread');
         } else if (data.message === '존재하지 않는 이메일입니다.') {

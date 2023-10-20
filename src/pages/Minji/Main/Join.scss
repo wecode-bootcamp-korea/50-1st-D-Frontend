@@ -1,28 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
 .main {
+  display: flex;
   width: 100%;
   height: 844px;
-  display: flex;
   padding: 24px 0px 40px 0px;
   gap: 24px;
   align-items: center;
   flex-direction: column;
   border: 1px solid #e5e5e5;
   border-radius: 16px;
-  header {
+  background-color: bisque;
+
+  .input_main {
+    gap: 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+    padding: 19ox 470px 15px 16px;
+    input {
+      width: 100%;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      height: 56px;
+      color: #999;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px;
+    }
+  }
+  .header {
+    flex-shrink: 0;
+    background-color: pink;
+    width: 100%;
     display: flex;
     height: 56px;
     padding: 8px 481px 8px 16px;
     align-items: center;
     align-self: stretch;
   }
-  p {
-    position: relative;
-    right: 250px;
-    font-weight: bold;
-    font-size: 27px;
-    margin: 25px;
+  .container {
+    display: flex;
+    padding: 0px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    align-self: stretch;
+    p {
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
+    }
   }
 
   .back {
@@ -37,46 +69,32 @@
   .mixinfo {
     display: flex;
     justify-content: space-between;
-    width: 600px;
-    margin-bottom: 10px;
+    align-self: stretch;
     align-items: center;
   }
 
   .required {
     color: red;
-    font-size: small;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+    font-style: normal;
   }
 
-  .information {
+  .blackColorFont {
     color: black;
     font-weight: normal;
-    font-size: 14px;
-  }
-
-  .input_main {
-    display: flex;
-    flex-direction: column;
-    input {
-      border: 1px solid #eeeeee;
-      width: 600px;
-      height: 50px;
-      border-radius: 8px;
-      text-indent: 1ch;
-      margin-bottom: 10px;
-    }
-  }
-
-  .profileimage {
-    color: black;
-    font : {
-      weight: normal;
-      size: 14px;
-    }
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
   }
 
   .choose {
-    font-size: small;
-    color: #a6a6a6;
+    font-weight: 400;
+    line-height: normal;
+    font-style: normal;
+    font-size: 12px;
+    color: #999;
   }
 
   .maininput {
@@ -88,40 +106,36 @@
     margin-bottom: 10px;
   }
 
-  .phonenum {
-    color: black;
-    font-weight: normal;
-    font-size: 14px;
-  }
-
   .typephone {
     display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    width: 600px;
-    margin-bottom: 10px;
+    height: 56px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    gap: 56px;
   }
   .startnum {
-    padding: 15px;
-    border: 0.5px solid #eeeeee;
-    color: #a6a6a6;
-    text-align: left;
-    width: 95px;
-    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    color: #999;
+    border-radius: 6px;
+    display: flex;
+    width: 136px;
+    padding: 16px 14px 15px 16px;
+    justify-content: center;
+    align-items: flex-end;
+
+    background-color: white;
   }
 
   .pushnum {
-    border: 0.5px solid #eeeeee;
-    color: #a6a6a6;
-    border-radius: 8px;
-    width: 490px;
-    text-indent: 1ch;
-  }
-
-  .birth {
-    color: black;
-    font-weight: normal;
-    font-size: 14px;
+    width: 384px;
+    border: 1px solid #e0e0e0;
+    color: #999;
+    border-radius: 6px;
+    display: flex;
+    padding: 19px 189px 15px 16px;
+    align-items: center;
   }
 
   .birthyear {
@@ -146,11 +160,11 @@
     }
   }
   .signup {
-    background-color: #2d71f7;
+    background-color: blue;
     border: none;
     color: white;
     font-weight: bold;
-    border-radius: 8px;
+    border-radius: 6px;
     width: 600px;
     height: 50px;
     text-align: center;
