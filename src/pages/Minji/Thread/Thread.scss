@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+.thread {
+  display: flex;
+  padding: 40px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .postList {
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+
+    height: 80vh;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .post {
+    display: flex;
+    padding: 0px 8px 24px 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    align-items: stretch;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  .header {
+    display: flex;
+    padding-right: 0px;
+    align-items: center;
+    justify-content: space-between;
+    .yourname {
+      padding-left: 16px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .yourface {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  .tbox {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+  }
+
+  .comments,
+  .date {
+    font-size: 16px;
+    color: #999;
+    font-weight: 400;
+    line-height: 22px;
+  }
+
+  .updatee {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    align-items: flex-end;
+  }
+
+  .updatebtn {
+    height: 56px;
+    padding: 0px 30px;
+    width: 120px;
+    color: white;
+    background-color: #2d71f7;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 800;
+    border: none;
+    border-radius: 6px;
+  }
+}
